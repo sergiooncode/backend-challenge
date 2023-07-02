@@ -6,6 +6,8 @@
 #
 exceptiongroup==1.1.1
     # via pytest
+execnet==1.9.0
+    # via pytest-xdist
 iniconfig==2.0.0
     # via pytest
 packaging==23.1
@@ -13,6 +15,16 @@ packaging==23.1
 pluggy==1.2.0
     # via pytest
 pytest==7.4.0
+    # via
+    #   -r requirements/test.in
+    #   pytest-django
+    #   pytest-mock
+    #   pytest-xdist
+pytest-django==4.5.2
+    # via -r requirements/test.in
+pytest-mock==3.11.1
+    # via -r requirements/test.in
+pytest-xdist==3.3.1
     # via -r requirements/test.in
 tomli==2.0.1
     # via pytest

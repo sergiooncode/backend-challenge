@@ -12,8 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +41,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "landbot_challenge.notifications.apps.NotificationsConfig",
+    "landbot_challenge.topics.apps.TopicsConfig",
+    "landbot_challenge.channels.apps.ChannelsConfig",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +76,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "landbot_challenge.wsgi.application"
+
+REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": []}
 
 
 # Database

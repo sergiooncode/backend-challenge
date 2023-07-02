@@ -46,8 +46,12 @@ up: ### Boot up containers
 down: ### Stop containers
 	$(COMPOSE_CMD) down
 
+.PHONY: clean
+clean: ### Stop and delete containers and volumes
+	$(COMPOSE_CMD) down -v --remove-orphans
+
 .PHONY: recreate
-recreate: build up
+recreate: clean build up
 
 ## Debugging
 

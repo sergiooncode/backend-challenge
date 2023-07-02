@@ -18,7 +18,7 @@ RUN pip install -r /tmp/requirements/base.txt
 
 RUN if ! [ $APP_ENV = 'production' ]; \
     then \
-    pip-sync /tmp/requirements/test.txt /tmp/requirements/linting.txt --pip-args '--no-cache-dir --no-deps --disable-pip-version-check'; \
+    pip-sync /tmp/requirements/base.txt /tmp/requirements/test.txt /tmp/requirements/linting.txt --pip-args '--no-cache-dir --no-deps --disable-pip-version-check'; \
     fi
 
 RUN mkdir -m 775 /code && \
@@ -30,4 +30,4 @@ USER landbot
 
 EXPOSE 8001
 
-CMD gunicorn -c ./src/landbot_challenge/gunicorn_conf.py
+CMD gunicorn -c ./landbot_challenge/gunicorn_conf.py landbot_challenge.wsgi.py
