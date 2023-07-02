@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from landbot_challenge.notifications.serializers import NotificationsSerializer
+
+
+class NotificationsViewSet(viewsets):
+    serializer_class = NotificationsSerializer
+
+    def create(self):
+        pass
