@@ -190,5 +190,6 @@ __pycache__/
 
 # Sqlite
 */db.sqlite3
+*/*/db.sqlite3
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,pycharm,visualstudiocode

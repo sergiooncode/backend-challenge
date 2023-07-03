@@ -15,7 +15,8 @@ class Topic(models.Model):
         choices=TopicName.choices,
         null=False,
         blank=False,
-        default=None
+        default=None,
+        unique=True
     )
 
     class Meta:

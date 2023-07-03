@@ -27,7 +27,7 @@ env = environ.Env()
 SECRET_KEY = "django-insecure-e79=sbk-b)w9ds6j8jbod3=u1p9(8*j2s+kq7!5)+8ftimri15"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -131,3 +131,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"

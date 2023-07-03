@@ -10,7 +10,7 @@ RUN addgroup landbot && useradd -u 1000 landbot -g landbot -G tty
 RUN set -ex && \
   apt-get update --yes && \
   apt-get upgrade --yes && \
-  apt-get install --no-install-recommends --yes curl build-essential libpq-dev gettext dnsutils procps strace libc-bin libexpat1 libcurl4-openssl-dev git libpcre3 libpcre3-dev libssl-dev && \
+  apt-get install --no-install-recommends --yes curl build-essential libpq-dev gettext dnsutils procps strace libc-bin libexpat1 libcurl4-openssl-dev git libpcre3 libpcre3-dev libssl-dev sqlite3 libsqlite3-dev && \
     pip install --no-cache-dir --disable-pip-version-check pip-tools
 
 COPY --chown=landbot:landbot ./requirements /tmp/requirements
