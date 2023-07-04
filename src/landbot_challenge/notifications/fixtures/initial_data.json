@@ -1,0 +1,18 @@
+[
+  {
+    "model": "notifications.notification",
+    "pk": 1,
+    "fields": {
+      "topic": 1,
+      "channel": 1
+    }
+  },
+  {
+    "model": "notifications.notification",
+    "pk": 2,
+    "fields": {
+      "topic": 2,
+      "channel": 2
+    }
+  }
+]

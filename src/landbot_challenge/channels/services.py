@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import logging
 
-from django.core.mail import send_mail
+from landbot_challenge.task_queue.worker.tasks.task_definitions import send_email_task
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +16,7 @@ class BaseChannelService(ABC):
 class EmailChannel(BaseChannelService):
     @staticmethod
     def notify(description: str):
-        send_mail(subject=description, message=description)
+        send_email_task.apply_async(args=(description, description))
 
 
 class SlackChannel(BaseChannelService):

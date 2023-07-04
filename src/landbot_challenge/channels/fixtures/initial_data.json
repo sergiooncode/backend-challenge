@@ -1,0 +1,16 @@
+[
+  {
+    "model": "channels.channel",
+    "pk": 1,
+    "fields": {
+      "name": "Sales"
+    }
+  },
+  {
+    "model": "channels.channel",
+    "pk": 2,
+    "fields": {
+      "name": "Pricing"
+    }
+  }
+]

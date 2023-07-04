@@ -1,0 +1,16 @@
+[
+  {
+    "model": "topics.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Slack"
+    }
+  },
+  {
+    "model": "topics.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Email"
+    }
+  }
+]

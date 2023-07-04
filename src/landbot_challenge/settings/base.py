@@ -85,8 +85,13 @@ REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": []}
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("PG_DB", default="landbot-db"),
+        "USER": env("PG_USER", default="landbot"),
+        "PASSWORD": env("PG_PASSWORD", default="landbot"),
+        "HOST": env("PG_HOST", default="landbot-postgres"),
+        "PORT": env.int("PG_PORT", default=5432),
+        "OPTIONS": env.json("PG_OPTIONS", default={"connect_timeout": 3}),
     }
 }
 

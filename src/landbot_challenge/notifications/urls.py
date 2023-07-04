@@ -4,7 +4,7 @@ from landbot_challenge.notifications.views import NotificationsViewSet
 
 urlpatterns = [
     path(
-        r"notify/",
+        r"notification/",
         NotificationsViewSet.as_view({"post": "post"}),
         name="notifications",
     )

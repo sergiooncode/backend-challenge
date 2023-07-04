@@ -8,8 +8,7 @@ from landbot_challenge.topics.models import Topic
 
 class Notification(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    topic = models.ForeignKey(Topic, null=False, on_delete=models.PROTECT,
-                              unique=True)
+    topic = models.OneToOneField(Topic, null=False, on_delete=models.PROTECT,)
     channel = models.ForeignKey(Channel, null=False, on_delete=models.PROTECT)
 
     class Meta:

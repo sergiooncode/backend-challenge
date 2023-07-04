@@ -50,8 +50,21 @@ down: ### Stop containers
 clean: ### Stop and delete containers and volumes
 	$(COMPOSE_CMD) down -v --remove-orphans
 
+.PHONY: migrate
+migrate: ## Run database migrations
+	$(COMPOSE_CMD) run --rm landbot-service sh -c "python /code/src/manage.py migrate --database=default --noinput"
+
 .PHONY: recreate
-recreate: clean build up
+recreate: clean build up migrate loaddata
+
+.PHONY: task-queue
+task-queue:
+	$(COMPOSE_CMD) exec -ti landbot-service bash -c "celery -A landbot_challenge.task_queue.worker.app worker -l info"
+
+.PHONY: loaddata
+loaddata: ## Load initial data from fixtures
+	sleep 1
+	$(COMPOSE_CMD) run --rm landbot-service sh -c "python /code/src/manage.py loaddata initial_data.json"
 
 ## Debugging
 
@@ -61,14 +74,14 @@ logs: ### Show all container logs
 
 .PHONY: bash-console
 bash-console: ### Show all container logs
-	$(COMPOSE_CMD) run --rm landbot_challenge bash
+	$(COMPOSE_CMD) run --rm landbot-service bash
 
 ## Testing and development
 
 .PHONY: test
 test: ## Run all or specific tests. Arguments: name=NAME-OF-TEST will run a specific test
-	$(COMPOSE_CMD) run --rm landbot_challenge sh /code/scripts/run-tests.sh $(name)
+	$(COMPOSE_CMD) run --rm landbot-service sh /code/scripts/run-tests.sh $(name)
 
 .PHONY: linting
 linting: ### Check of fix code linting using black and isort. Arguments: fix=yes will force changes
-	$(COMPOSE_CMD) run --rm landbot_challenge sh /code/scripts/run-linting.sh $(fix)
+	$(COMPOSE_CMD) run --rm landbot-service sh /code/scripts/run-linting.sh $(fix)

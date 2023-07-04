@@ -1,4 +1,7 @@
+celery
 django
 django-environ
 djangorestframework
 gunicorn
+psycopg2-binary
+redis
