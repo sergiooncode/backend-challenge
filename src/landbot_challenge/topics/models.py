@@ -16,7 +16,7 @@ class Topic(models.Model):
         null=False,
         blank=False,
         default=None,
-        unique=True
+        unique=True,
     )
 
     class Meta:

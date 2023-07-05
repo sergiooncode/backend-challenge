@@ -8,9 +8,6 @@ logger = logging.getLogger(__name__)
 
 
 @app.task
-def send_email_task(
-        subject: str,
-        message: str
-):
+def send_email_task(subject: str, message: str):
     logger.info("send_email_task", message="Send an email deferredly")
     send_mail(subject=subject, message=message)

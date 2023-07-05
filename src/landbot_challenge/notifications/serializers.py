@@ -22,9 +22,11 @@ class NotificationsSerializer(serializers.Serializer):
             notification_queryset = Notification.objects.filter(topic__name=topic_name)
             notification = notification_queryset.first()
             print(notification)
-            CHANNEL_TO_CHANNEL_IMPLEMENTATION_CLASS[
-                notification.channel.name].notify(description=description)
+            CHANNEL_TO_CHANNEL_IMPLEMENTATION_CLASS[notification.channel.name].notify(
+                description=description
+            )
         except LandbotUnexpectedError as error:
             logger.info(f"Unexpected error")
-            return Response({"detail": "Unexpected error"},
-                            status=HTTPStatus.INTERNAL_SERVER_ERROR)
+            return Response(
+                {"detail": "Unexpected error"}, status=HTTPStatus.INTERNAL_SERVER_ERROR
+            )

@@ -12,7 +12,7 @@ class ChannelName(models.TextChoices):
 
 CHANNEL_TO_CHANNEL_IMPLEMENTATION_CLASS = {
     ChannelName.EMAIL.value: EmailChannel,
-    ChannelName.SLACK.value: SlackChannel
+    ChannelName.SLACK.value: SlackChannel,
 }
 
 
@@ -23,7 +23,7 @@ class Channel(models.Model):
         choices=ChannelName.choices,
         null=False,
         blank=False,
-        default=None
+        default=None,
     )
 
     class Meta:

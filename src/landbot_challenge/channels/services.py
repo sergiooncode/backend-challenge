@@ -1,6 +1,5 @@
-from abc import ABC, abstractmethod
-
 import logging
+from abc import ABC, abstractmethod
 
 from landbot_challenge.task_queue.worker.tasks.task_definitions import send_email_task
 
