@@ -3,14 +3,14 @@
     "model": "topics.topic",
     "pk": 1,
     "fields": {
-      "name": "Slack"
+      "name": "Sales"
     }
   },
   {
     "model": "topics.topic",
     "pk": 2,
     "fields": {
-      "name": "Email"
+      "name": "Pricing"
     }
   }
 ]

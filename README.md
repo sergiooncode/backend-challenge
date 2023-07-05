@@ -61,5 +61,5 @@ make loaddata
 - Send request
 
 ```
-curl --request POST --url http://localhost:8001/api/notifications/ --header 'content-type: application/json' --data '{"topic":"Sales","description":"A description"}'
+curl --url http://localhost:8001/api/notification/ --header 'content-type: application/json' --data '{"topic":"Sales","description":"A description"}'
 ```

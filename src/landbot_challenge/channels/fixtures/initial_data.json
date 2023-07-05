@@ -3,14 +3,14 @@
     "model": "channels.channel",
     "pk": 1,
     "fields": {
-      "name": "Sales"
+      "name": "Slack"
     }
   },
   {
     "model": "channels.channel",
     "pk": 2,
     "fields": {
-      "name": "Pricing"
+      "name": "Email"
     }
   }
 ]
