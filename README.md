@@ -31,6 +31,7 @@ Pricing  | Email
 - Channels model will hold all channels, Topics will hold all topics and Notifications will hold notifications which are unique topics with a channel associated.
 - There may be more services and they'll all notify so an interface was added so any new notification service added conforms to the interface.
 - Since the /api/notification/ endpoint is synchronous and the notification is sent as part of the handling of the view, a task queue was added and the actual notification (it was done for the email notification) is deferred with a task.
+- More tests would need to be added testing error cases
 
 ## Run application:
 
