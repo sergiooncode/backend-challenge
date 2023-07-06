@@ -21,7 +21,6 @@ class NotificationsSerializer(serializers.Serializer):
         try:
             notification_queryset = Notification.objects.filter(topic__name=topic_name)
             notification = notification_queryset.first()
-            print(notification)
             CHANNEL_TO_CHANNEL_IMPLEMENTATION_CLASS[notification.channel.name].notify(
                 description=description
             )
